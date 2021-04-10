@@ -45,11 +45,11 @@ public class ProjetResource {
     }
 
    @PostMapping("/add")
-    public ResponseEntity<Projet> addNewProjet(@RequestBody Projet Newprojet){
-       User u=Newprojet.getCreePar();
+    public ResponseEntity<Projet> addNewProjet(@RequestBody Projet newprojet){
+       User u=newprojet.getCreePar();
        User user= userService.findUserByIdentifiant(u.getIdentifiant());
-       Newprojet.setCreePar(user);
-       Projet addedProjet=projetService.addNewProjet(Newprojet);
+       newprojet.setCreePar(user);
+       Projet addedProjet=projetService.addNewProjet(newprojet);
        return new ResponseEntity<>(addedProjet,OK);
 
     }
@@ -62,12 +62,12 @@ public class ProjetResource {
     }*/
 
     @PostMapping("/update/{idProjet}")
-    public ResponseEntity<Projet> updateProjet(@PathVariable long idProjet,  @RequestBody Projet Newprojet){
+    public ResponseEntity<Projet> updateProjet(@PathVariable long idProjet,  @RequestBody Projet newprojet){
 
-            Newprojet.setIdProjet(idProjet);
+            newprojet.setIdProjet(idProjet);
             // projet.setDateModification(new Date());
 
-            Projet updatedProjet=projetService.addNewProjet(Newprojet);
+            Projet updatedProjet=projetService.addNewProjet(newprojet);
         return new ResponseEntity<>(updatedProjet,OK);
     }
   /*  @GetMapping("/Auth/{nomUser}")

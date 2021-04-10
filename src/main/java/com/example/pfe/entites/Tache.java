@@ -1,9 +1,13 @@
 package com.example.pfe.entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 public class Tache implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
