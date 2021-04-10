@@ -3,7 +3,7 @@ package com.example.pfe.constant;
 public class EmailConstant {
     public static final String SIMPLE_MAIL_TRANSFER_PROTOCOL="smtps";
     public static final String USERNAME="nesrouna36@gmail.com";
-    public static final String PASSWORD="jonessdoudi1213"; //gmail password
+    public static final String PASSWORD="*******"; //gmail password
     public static final String FROM_EMAIL="support@getarrays.com";
     public static final String CC_EMAIL="";
     public static final String EMAIL_SUBJECT="Get Arrays,LLC-New Password";
