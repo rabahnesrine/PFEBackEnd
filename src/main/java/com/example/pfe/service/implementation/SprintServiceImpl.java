@@ -47,14 +47,14 @@ private SprintRepository sprintRepository;
     }
 
     @Override
-   public Sprint addNewSprint(Sprint Newsprint) {
+   public Sprint addNewSprint(Sprint newsprint) {
 //Validation !!!
-        if(Newsprint.getEtatSprint()==null)
-        {Newsprint.setEtatSprint("Non Commencer");}
-        if(!Newsprint.isArchive())
-        {Newsprint.setArchive(false);}
-        Newsprint.setDateCreation (new Date());
-        return   sprintRepository.save(Newsprint);
+        if(newsprint.getEtatSprint()==null)
+        {newsprint.setEtatSprint("Non Commencer");}
+        if(!newsprint.isArchive())
+        {newsprint.setArchive(false);}
+        newsprint.setDateCreation (new Date());
+        return   sprintRepository.save(newsprint);
 
     }
 

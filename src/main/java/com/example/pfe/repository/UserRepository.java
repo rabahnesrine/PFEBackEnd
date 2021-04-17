@@ -1,5 +1,6 @@
 package com.example.pfe.repository;
 
+import com.example.pfe.entites.Projet;
 import com.example.pfe.entites.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -13,7 +14,6 @@ public interface UserRepository extends JpaRepository<User,Long > {
     public User findUserByEmailUser( String emailUser);
 public User findUserByIdUser(long idUser);
     public User findUserByIdentifiant(String identifiant);
-
 
 
 

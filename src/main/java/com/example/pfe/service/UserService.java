@@ -19,6 +19,7 @@ public interface UserService {
     User findUserByEmailUser(String emailUser);
     User findUserByIdUser(long idUser);
     User findUserByIdentifiant(String identifiant);
+
     //User addNewUser(String nomUser, String emailUser,String telephone,String professionUser, String role, boolean isNonLocked, boolean isActive) throws UserNotFoundException, UsernameExistException, EmailExistException, IOException;
 
    User addNewUser(String nomUser, String emailUser,String telephone,String professionUser, String roles, boolean isNotLocked, boolean isActive, MultipartFile profileImage) throws UserNotFoundException, UsernameExistException, EmailExistException, IOException;

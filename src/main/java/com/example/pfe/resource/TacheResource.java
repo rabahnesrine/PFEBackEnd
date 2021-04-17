@@ -1,17 +1,27 @@
 package com.example.pfe.resource;
 
+import com.example.pfe.entites.Projet;
+import com.example.pfe.entites.Sprint;
 import com.example.pfe.entites.Tache;
+import com.example.pfe.entites.User;
 import com.example.pfe.service.TacheService;
 import com.example.pfe.service.UserService;
+import com.example.pfe.service.implementation.UserServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.OK;
+
 @RestController
 @RequestMapping("/api")
 public class TacheResource {
+    private Logger LOGGER= LoggerFactory.getLogger(UserServiceImpl.class);
 
 private UserService userService;
    private TacheService tacheService;
@@ -21,14 +31,46 @@ private UserService userService;
         this.tacheService = tacheService;
     }
 
+
+
+
+   /* @PostMapping("/tasks")
+    public ResponseEntity<Tache> saveTache(@RequestBody Tache tache){
+        //  Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        //String currentPrincipalName = authentication.getName();
+        //LOGGER.info(currentPrincipalName);
+        User u=tache.getMember();
+        User user= userService.findUserByIdentifiant(u.getIdentifiant());
+        LOGGER.info(user.getNomUser()); //cree
+
+        tache.setMember(user);
+        tache.setDateAffectation(new Date());
+        tache.setDateModification(new Date());
+        Tache addedtache=tacheService.save(tache);
+
+        return new ResponseEntity<>(addedtache,OK);
+
+    }*/
+
+
     @PostMapping("/tasks")
+
+    public ResponseEntity<Tache> addNewTache(@RequestBody Tache newTache) {
+        User u = newTache.getMember();
+        User user = userService.findUserByIdentifiant(u.getIdentifiant());
+        newTache.setMember(user);
+        Tache addedTache = tacheService.save(newTache);
+        return new ResponseEntity<>(addedTache, OK);
+    }/*
+   @PostMapping("/tasks")
     public Tache saveTache(@RequestBody Tache tache) {
 
         tache.setDateAffectation(new Date());
         tache.setDateModification(new Date());
+
         return tacheService.save(tache);
 
-    }
+    }*/
 
     @PutMapping("/tasks/{id}")
     public Tache updateTache(@PathVariable Long id, @RequestBody Tache task) {

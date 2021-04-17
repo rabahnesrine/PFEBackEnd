@@ -1,9 +1,7 @@
 package com.example.pfe.resource;
 
 
-import com.example.pfe.entites.HttpResponse;
-import com.example.pfe.entites.Projet;
-import com.example.pfe.entites.User;
+import com.example.pfe.entites.*;
 import com.example.pfe.exception.domain.EmailExistException;
 import com.example.pfe.exception.domain.UserNotFoundException;
 import com.example.pfe.exception.domain.UsernameExistException;
@@ -13,10 +11,15 @@ import com.example.pfe.exception.projetException.UserProjetExistException;
 import com.example.pfe.repository.UserRepository;
 import com.example.pfe.service.ProjetService;
 import com.example.pfe.service.UserService;
+import com.example.pfe.service.implementation.UserServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,6 +36,7 @@ import static org.springframework.http.HttpStatus.OK;
 public class ProjetResource {
 
     private ProjetService projetService ;
+    private Logger LOGGER= LoggerFactory.getLogger(UserServiceImpl.class);
 
     private UserService userService;
     public static final String PROJECT_DELETED_SUCCESSFULLY = "Project deleted successfully";
@@ -46,8 +50,13 @@ public class ProjetResource {
 
    @PostMapping("/add")
     public ResponseEntity<Projet> addNewProjet(@RequestBody Projet newprojet){
+     //  Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+       //String currentPrincipalName = authentication.getName();
+       //LOGGER.info(currentPrincipalName);
        User u=newprojet.getCreePar();
        User user= userService.findUserByIdentifiant(u.getIdentifiant());
+       LOGGER.info(user.getNomUser()); //cree
+
        newprojet.setCreePar(user);
        Projet addedProjet=projetService.addNewProjet(newprojet);
        return new ResponseEntity<>(addedProjet,OK);
@@ -61,7 +70,7 @@ public class ProjetResource {
         return new ResponseEntity<>(addedProjet,OK);
     }*/
 
-    @PostMapping("/update/{idProjet}")
+    @PutMapping("/update/{idProjet}")
     public ResponseEntity<Projet> updateProjet(@PathVariable long idProjet,  @RequestBody Projet newprojet){
 
             newprojet.setIdProjet(idProjet);
@@ -93,6 +102,14 @@ public class ProjetResource {
         return response(NO_CONTENT, PROJECT_DELETED_SUCCESSFULLY);
 
     }
+
+    @GetMapping("/findSprint/{nomProjet}")
+    public ResponseEntity<List<Sprint>> getProjetSprint(@PathVariable("nomProjet")String nomProjet){
+        Projet projet=projetService.findProjetByNomProjet(nomProjet);
+        List<Sprint> sprints =projet.getSprints();
+        return new ResponseEntity<>(sprints,OK);
+    }
+
 
 
 

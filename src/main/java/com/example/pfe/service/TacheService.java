@@ -1,5 +1,6 @@
 package com.example.pfe.service;
 
+import com.example.pfe.entites.Sprint;
 import com.example.pfe.entites.Tache;
 import com.example.pfe.entites.User;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import java.util.List;
 public interface TacheService {
 
 
+    //Tache addNewTache(Tache newTache) ;
 
     Tache save(Tache tache);
     List<Tache> findAll();

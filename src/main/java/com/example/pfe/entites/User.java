@@ -29,6 +29,7 @@ public class User implements Serializable {
     private String password;
     private boolean isActive;
     private boolean isNotLocked;
+
     @OneToMany(mappedBy ="creePar" )
     private List<Projet> projets;
 
@@ -41,7 +42,7 @@ private List<Sprint> sprintAffecter;
 //@OneToMany(mappedBy ="chefEquipeTaches" )
 //private List<Tache> taches;
 
-@OneToMany(mappedBy = "member")
+@OneToMany(mappedBy = "member" )
 private  List<Tache> memberTaches;
 
     public User(){}

@@ -1,9 +1,6 @@
 package com.example.pfe.resource;
 
-import com.example.pfe.entites.HttpResponse;
-import com.example.pfe.entites.Projet;
-import com.example.pfe.entites.Sprint;
-import com.example.pfe.entites.User;
+import com.example.pfe.entites.*;
 import com.example.pfe.service.ProjetService;
 import com.example.pfe.service.SprintService;
 import com.example.pfe.service.UserService;
@@ -23,30 +20,24 @@ import static org.springframework.http.HttpStatus.OK;
 public class SprintResource {
   private UserService userService;
   private SprintService sprintService;
-    private ProjetService projetService;
 
     public static final String SPRINT_DELETED_SUCCESSFULLY = "Sprint deleted successfully";
 
-    public SprintResource(UserService userService, SprintService sprintService, ProjetService projetService) {
+    public SprintResource(UserService userService, SprintService sprintService) {
         this.userService = userService;
         this.sprintService = sprintService;
-        this.projetService = projetService;
     }
 
     @PostMapping("/add")
     public ResponseEntity<Sprint> addNewSprint(@RequestBody Sprint newSprint) {
         User u = newSprint.getChefEquipe();
         User user = userService.findUserByIdentifiant(u.getIdentifiant());
-       newSprint.setChefEquipe(user);
-      //  Projet p = NewSprint.getProjet();
-      //  Projet projet = projetService.findProjetByIdProjet(p.getIdProjet());
-        //NewSprint.setProjet(projet);
-     //   NewSprint.setSprintCreePar(p.getCreePar());
+        newSprint.setChefEquipe(user);
         Sprint addedSprint = sprintService.addNewSprint(newSprint);
         return new ResponseEntity<>(addedSprint, OK);
     }
 
-    @PostMapping("/update/{idSprint}")
+    @PutMapping("/update/{idSprint}")
     public ResponseEntity<Sprint> updateSprint(@PathVariable long idSprint, @RequestBody Sprint newSprint){
         User u = newSprint.getChefEquipe();
         User user = userService.findUserByIdentifiant(u.getIdentifiant());
@@ -66,6 +57,14 @@ public class SprintResource {
         return new ResponseEntity<>(sprints,OK);
 
     }
+
+    @GetMapping("/findTache/{nomSprint}")
+    public ResponseEntity<List<Tache>> getSprintTache(@PathVariable("nomSprint")String nomSprint){
+        Sprint sprint=sprintService.findSprintByNomSprint(nomSprint);
+        List<Tache> taches =sprint.getTaches();
+        return new ResponseEntity<>(taches,OK);
+    }
+
     @DeleteMapping("/delete/{idSprint}")
     // @PreAuthorize("hasAnyAuthority('sprint:delete')")
     public ResponseEntity<HttpResponse> deleteProjet(@PathVariable("idSprint") long  idSprint){

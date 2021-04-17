@@ -1,17 +1,19 @@
 package com.example.pfe.service.implementation;
 
+import com.example.pfe.entites.Sprint;
 import com.example.pfe.entites.Tache;
 import com.example.pfe.entites.User;
 import com.example.pfe.repository.TacheRepository;
 import com.example.pfe.service.TacheService;
+import com.example.pfe.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class TacheServiceImpl implements TacheService {
-
 
     private TacheRepository tacheRepository;
 @Autowired
@@ -25,13 +27,26 @@ public class TacheServiceImpl implements TacheService {
 
 
     @Override
+    public Tache save(Tache newTache) {
+//Validation !!!
+        if(newTache.getEtatTache()==null)
+        {newTache.setEtatTache("Non Commencer");}
+        if(!newTache.isArchive())
+        {newTache.setArchive(false);}
+        newTache.setDateAffectation(new Date());
+        return  tacheRepository.save(newTache);
+
+    }
+
+ /*   @Override
     public Tache save(Tache tache) {
+
         if (tache.getEtatTache() == null)
             tache.setEtatTache("Non Commencer");
         if (!tache.isArchive())
             tache.setArchive(false);
         return tacheRepository.save(tache);
-    }
+    }*/
 
     @Override
     public List<Tache> findAll() {
@@ -123,7 +138,7 @@ public class TacheServiceImpl implements TacheService {
     @Override
     public Tache findTachebyNomTache(String nomTache) {
 
-        return tacheRepository.findByNomTache(nomTache);
+        return tacheRepository.findTacheByNomTache(nomTache);
     }
 
 

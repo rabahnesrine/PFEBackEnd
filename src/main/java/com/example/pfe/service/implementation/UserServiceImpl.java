@@ -5,6 +5,7 @@ import  static com.example.pfe.constant.UserImplConstant.*;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 import com.example.pfe.constant.FileConstant;
+import com.example.pfe.entites.Projet;
 import com.example.pfe.entites.User;
 import com.example.pfe.entites.UserPrincipal;
 import com.example.pfe.enumeration.Role;
@@ -200,6 +201,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 @Override
     public User findUserByIdUser(long idUser){return  userRepository.findUserByIdUser(idUser);}
+
+
+
+
 
 
     @Override

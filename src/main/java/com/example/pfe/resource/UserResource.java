@@ -1,16 +1,10 @@
 package com.example.pfe.resource;
 
 import com.example.pfe.constant.SecurityConstant;
-import com.example.pfe.entites.HttpResponse;
-import com.example.pfe.entites.Projet;
-import com.example.pfe.entites.User;
-import com.example.pfe.entites.UserPrincipal;
+import com.example.pfe.entites.*;
 import com.example.pfe.exception.domain.*;
 import com.example.pfe.service.UserService;
-import com.example.pfe.service.implementation.UserServiceImpl;
 import com.example.pfe.utility.JWTTokenProvider;
-import net.bytebuddy.implementation.bind.MethodDelegationBinder;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +14,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.MessagingException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -136,6 +124,31 @@ return new ResponseEntity<>(newuser, OK);
         return new ResponseEntity<>(user,OK);
 
     }
+    //scrum Master
+    @GetMapping("/findProjet/{nomUser}")
+    public ResponseEntity<List<Projet>> getUserProjet(@PathVariable("nomUser")String nomUser){
+        User user=userService.findUserByNomUser(nomUser);
+        List<Projet> projets =user.getProjets();
+        return new ResponseEntity<>(projets,OK);
+    }
+     //chefd'equipe
+    @GetMapping("/findSprint/{nomUser}")
+    public ResponseEntity<List<Sprint>> getUserSprint(@PathVariable("nomUser")String nomUser){
+        User user=userService.findUserByNomUser(nomUser);
+        List<Sprint> sprints =user.getSprintAffecter();
+        return new ResponseEntity<>(sprints,OK);
+    }
+    //Member
+    @GetMapping("/findTache/{nomUser}")
+    public ResponseEntity<List<Tache>> getUserTache(@PathVariable("nomUser")String nomUser){
+        User user=userService.findUserByNomUser(nomUser);
+        List<Tache> taches =user.getMemberTaches();
+        return new ResponseEntity<>(taches,OK);
+    }
+
+
+
+
 
     @GetMapping("/list")
     public ResponseEntity<List<User>> getAllUser(){

@@ -20,7 +20,7 @@ public class Sprint implements Serializable {
     private boolean archive;
     //@ManyToOne
    // @JoinColumn(name="idUser")
-    //private User sprintCreePar;//recupere user a partir instance projet
+   // private User sprintCreePar;//recupere user a partir instance projet
     @ManyToOne
     @JoinColumn(name="idProjet")
     private Projet projet ;
@@ -43,11 +43,12 @@ public class Sprint implements Serializable {
         this.description = description;
         this.etatSprint = etatSprint;
         this.archive = archive;
-       // this.sprintCreePar = sprintCreePar;
         this.projet = projet;
         this.chefEquipe = chefEquipe;
         this.taches = taches;
     }
+
+
 
     public String getDescription() {
         return description;

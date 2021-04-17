@@ -21,7 +21,7 @@ public class Tache implements Serializable {
 
 //@ManyToOne
 //@JoinColumn(name="idUser")
-    private User chefEquipeTaches;
+ //   private User chefEquipeTaches;
 
 @ManyToOne
 @JoinColumn(name="idSprint")
@@ -36,14 +36,13 @@ public class Tache implements Serializable {
     private boolean archive;
 
 public  Tache(){};
-    public Tache(Long id, String nomTache, String description, Date dateDebut, Date dateEcheance, String etatTache, User chefEquipeTaches, Sprint sprint, User member, Date dateAffectation, Date dateModification, boolean archive) {
+    public Tache(Long id, String nomTache, String description, Date dateDebut, Date dateEcheance, String etatTache,  Sprint sprint, User member, Date dateAffectation, Date dateModification, boolean archive) {
         this.id = id;
         this.nomTache = nomTache;
         this.description = description;
         this.dateDebut = dateDebut;
         this.dateEcheance = dateEcheance;
         this.etatTache = etatTache;
-        this.chefEquipeTaches = chefEquipeTaches;
         this.sprint = sprint;
         this.member = member;
         this.dateAffectation = dateAffectation;
@@ -99,17 +98,9 @@ public  Tache(){};
         this.etatTache = etatTache;
     }
 
-    public User getChefEquipeTaches() {
-        chefEquipeTaches= sprint.getChefEquipe();
-        return chefEquipeTaches;
-    }
-
-    public void setChefEquipeTaches(User chefEquipeTaches) {
-        this.chefEquipeTaches = chefEquipeTaches;
-    }
 
     public Sprint getSprint() {
-        return sprint;
+        return this.sprint;
     }
 
     public void setSprint(Sprint sprint) {
@@ -117,11 +108,9 @@ public  Tache(){};
     }
 
     public User getMember() {
-        return member;
+        return this.member;
     }
-
-    public void setMember(User member) {
-        member = member;
+    public void setMember(User member) {this.member = member;
     }
 
     public Date getDateAffectation() {

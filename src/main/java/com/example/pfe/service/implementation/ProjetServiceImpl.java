@@ -14,7 +14,11 @@ import com.example.pfe.service.ProjetService;
 import com.example.pfe.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,7 +34,7 @@ import static com.example.pfe.constant.ProjetImplConstant.*;
 public class ProjetServiceImpl implements ProjetService {
     private  ProjetRepository projetRepository;
     private UserResource userResource;
-
+private UserService userService;
     @Autowired
     public ProjetServiceImpl(ProjetRepository projetRepository,UserResource userResource) {
         this.projetRepository = projetRepository;
@@ -60,24 +64,29 @@ public Projet addNewMember(Projet projet ,User user){
 
 
     @Override
-    public Projet addNewProjet(Projet Newprojet) {
+    public Projet addNewProjet(Projet newprojet) {
+        User u=newprojet.getCreePar();
+        User user= userService.findUserByIdentifiant(u.getIdentifiant());
+       // LOGGER.info(user.getNomUser()); //cree
      //   ValidateNewnomProjet(StringUtils.EMPTY, nomProjet, creePar);
-        if(Newprojet.getEtatProjet()==null)
-        {Newprojet.setEtatProjet("Non Commencer");}
-        if(!Newprojet.isArchiveProjet())
-        {Newprojet.setArchiveProjet(false);}
-        Newprojet.setDateCreation (new Date());
+
+
+        if(newprojet.getEtatProjet()==null)
+        {newprojet.setEtatProjet("Non Commencer");}
+        if(!newprojet.isArchiveProjet())
+        {newprojet.setArchiveProjet(false);}
+        newprojet.setDateCreation (new Date());
 
 
 
 
 
-        return   projetRepository.save(Newprojet);
+        return   projetRepository.save(newprojet);
 
     }
 
 
-/*
+    /*
     private Projet ValidateNewnomProjet(String currentNomProjet, String nomProjet , User creePar) throws ProjetNotFoundException, ProjetNameExistException, UserProjetExistException {
 Projet projetByNewNomProjet=findProjetByNomProjet(nomProjet);
         Projet projetByNewUser=findProjetBynomUser(creePar.getNomUser());
