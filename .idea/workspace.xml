@@ -5,44 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="232c730e-2b38-40e2-9d92-b2d7f51da59c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TacheApp" beforeDir="false" afterPath="$PROJECT_DIR$/TacheApp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TacheApp/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/TacheApp/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TacheApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/TacheApp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TacheApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/TacheApp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TacheApp/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TacheApp/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TacheApp/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/TacheApp/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TacheApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TacheApp/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TacheApp/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TacheApp/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/PfeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/PfeApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/constant/SecurityConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/constant/SecurityConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/entites/Sprint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/entites/Sprint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/entites/Tache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/entites/Tache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/entites/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/entites/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/repository/TacheRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/repository/TacheRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/resource/ProjetResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/resource/ProjetResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/resource/SprintResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/resource/SprintResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/resource/TacheResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/resource/TacheResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/resource/UserResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/resource/UserResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/TacheService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/TacheService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/implementation/ProjetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/implementation/ProjetServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/implementation/SprintServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/implementation/SprintServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/implementation/TacheServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/implementation/TacheServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/implementation/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pfe/service/implementation/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/constant/SecurityConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/constant/SecurityConstant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/entites/Sprint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/entites/Sprint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/entites/Tache.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/entites/Tache.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/entites/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/entites/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/repository/TacheRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/repository/TacheRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/resource/ProjetResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/resource/ProjetResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/resource/SprintResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/resource/SprintResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/resource/TacheResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/resource/TacheResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/resource/UserResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/resource/UserResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/service/implementation/ProjetServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/service/implementation/ProjetServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/service/implementation/SprintServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/service/implementation/SprintServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/service/implementation/TacheServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/service/implementation/TacheServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pfe/service/implementation/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pfe/service/implementation/UserServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

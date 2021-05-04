@@ -46,9 +46,6 @@ private List<Sprint> sprintAffecter;
 private  List<Tache> memberTaches;
 
     public User(){}
-    public User(String nomUser){
-        this.nomUser=nomUser;
-    }
     public User(Long idUser, String identifiant, String nomUser, String emailUser, String telephone, Date dateInscrit, String professionUser, String profileImgUrl, Date lastLoginDate, Date lastLoginDateDisplay, String roles, String[] authorities, String password, boolean isActive, boolean isNotLocked) {
         this.idUser = idUser;
         this.identifiant = identifiant;
